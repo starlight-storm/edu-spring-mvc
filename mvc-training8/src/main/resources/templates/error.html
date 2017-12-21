@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title th:text="#{title.error}">えらー</title>
+</head>
+<body>
+    <div class="container">
+        <div class="alert alert-danger">
+        エラーが発生しました。<a th:href="@{/}" href="/index.html">ホーム</a>に戻ってやり直してください。
+        </div>
+    </div>
+</body>
+</html>

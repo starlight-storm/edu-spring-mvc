@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title th:text="#{title.notfound}">こきゃくいない</title>
+</head>
+<body>
+	<p th:text="#{errors.datanotfound.customer}">Customer Not Found</p>
+	<a href="index.html" th:href="@{/customer}" th:text="#{button.returnlist}">いちらん画面へ戻る</a>
+</body>
+</html>

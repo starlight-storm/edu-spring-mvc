@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8"/>
+<title th:text="#{title.list}">こきゃく一覧画面</title>
+</head>
+<body>
+	<h1 th:text="#{title.list}">こきゃく一覧画面</h1>
+	<table border="1">
+		<thead>
+			<tr>
+				<th>ID</th>
+				<th>NAME</th>
+				<th>ADDRESS</th>
+				<th>E-MAIL</th>
+			</tr>
+		</thead>
+		<tbody th:remove="all-but-first">
+			<tr>
+				<td>1</td>
+				<td>山田</td>
+				<td>東京</td>
+				<td>yamada@hoge.com</td>
+				<td>
+					<span>詳細</span>
+					<span>編集</span>
+				</td>
+			</tr>
+			<tr>
+				<td>2</td>
+				<td>鈴木</td>
+				<td>北海道</td>
+				<td>suzuki@foo.jp</td>
+				<td>
+					<span>詳細</span>
+					<span>編集</span>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</body>
+</html>

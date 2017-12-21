@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<title th:text="#{title.enter}">にゅうりょく画面</title>
+</head>
+<body>
+	<h1 th:text="#{title.enter}">にゅうりょく画面</h1>
+	<form method="post" th:object="${editCustomer}">
+		<dl>
+			<dt th:text="#{id}">ID</dt>
+			<dd th:text="${editCustomer.id}">3</dd>
+			
+			<dt th:text="#{name}">NAME</dt>
+			<dd>
+				<input type="text" th:field="*{name}" />
+				<span th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Name	Error</span>
+			</dd>
+			<dt th:text="#{address}">ADDRESS</dt>
+			<dd>
+				<input type="text" th:field="*{address}" />
+				<span th:if="${#fields.hasErrors('address')}" th:errors="*{address}">Address Error</span>
+			</dd>
+			<dt th:text="#{emailAddress}">E-Mail</dt>
+			<dd>
+				<input type="text" th:field="*{emailAddress}" />
+				<span th:if="${#fields.hasErrors('emailAddress')}" th:errors="*{emailAddress}">E-Mail Error</span>
+				<span th:if="${#fields.hasErrors('ngEmail')}" th:errors="*{ngEmail}">E-Mail Error</span>
+			</dd>
+		</dl>
+		<button type="submit" name="_event_proceed" th:text="#{button.next}">つぎへ</button>
+	</form>
+</body>
+</html>

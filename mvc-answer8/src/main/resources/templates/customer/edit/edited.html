@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<link href="/css/normalize.css" th:href="@{/css/normalize.css}" rel="stylesheet"></link>
+<link href="/css/customer.css" th:href="@{/css/customer.css}" rel="stylesheet"></link>
+<title th:text="#{title.edited}">こうしん完了</title>
+</head>
+<body>
+	<h1 th:text="#{title.edited}">こうしん完了</h1>
+	<dl>
+		<dt th:text="#{id}">ID</dt>
+		<dd th:text="${editCustomer.id}">3</dd>
+		<dt th:text="#{name}">NAME</dt>
+		<dd th:text="${editCustomer.name}">佐藤</dd>
+		<dt th:text="#{address}">ADDRESS</dt>
+		<dd th:text="${editCustomer.address}">福島</dd>
+		<dt th:text="#{emailAddress}">E-MAIL</dt>
+		<dd th:text="${editCustomer.emailAddress}">satou@fuga.com</dd>
+		<dt th:text="#{membershipType}">TYPE</dt>
+		<dd th:text="${@eh.getText('CustomerTypeValues', editCustomer.membershipType)}">ゴールド</dd>
+		<dt th:text="#{emailNotification}">NOTIFICATION</dt>
+		<dd th:text="${@eh.getText('EmailNotificationValues', editCustomer.emailNotification)}">日本</dd>
+	</dl>
+	<a href="index.html" th:href="@{/customer}" th:text="#{button.return}">もどる</a>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8"/>
+<link href="/css/normalize.css" th:href="@{/css/normalize.css}" rel="stylesheet"></link>
+<link href="/css/customer.css" th:href="@{/css/customer.css}" rel="stylesheet"></link>
+<title th:text="#{title.list}">こきゃく一覧画面</title>
+</head>
+<body>
+	<h1 th:text="#{title.list}">こきゃく一覧画面</h1>
+	<table border="1">
+		<thead>
+			<tr>
+				<th th:text="#{id}">ID</th>
+				<th th:text="#{name}">NAME</th>
+				<th th:text="#{address}">ADDRESS</th>
+				<th th:text="#{emailAddress}">E-MAIL</th>
+				<th th:text="#{membershipType}">TYPE</th>
+				<th th:text="#{emailNotification}">NOTIFICATION</th>
+			</tr>
+		</thead>
+		<tbody th:remove="all-but-first">
+			<tr th:each="customer : ${customers.pageList}">
+				<td th:text="${customer.id}">1</td>
+				<td th:text="${customer.name}">山田</td>
+				<td th:text="${customer.address}">東京</td>
+				<td th:text="${customer.emailAddress}">yamada@hoge.com</td>
+				<td th:text="${@eh.getText('CustomerTypeValues', customer.membershipType)}">ゴールド</td>
+				<td th:text="${@eh.getText('EmailNotificationValues', customer.emailNotification)}">あり</td>
+				<td>
+					<a href="index.html" th:href="@{/customer/{id}(id=${customer.id})}" th:text="#{button.detail}">しょうさい</a>
+					<a href="index.html" th:href="@{/customer/{id}/edit(id=${customer.id})}" th:text="#{button.edit}">へんしゅう</a>
+				</td>
+			</tr>
+			<tr>
+				<td>2</td>
+				<td>鈴木</td>
+				<td>北海道</td>
+				<td>suzuki@foo.jp</td>
+				<td>ゴールド</td>
+				<td>あり</td>
+				<td>
+					<a href="index.html">詳細</a>
+					<span>編集</span>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+		<a th:if="${!customers.firstPage}" th:href="@{/customer(page=${customers.page - 1})}">Previous</a> 
+       	<span th:text="${customers.page + 1}">1 / 10</span> 
+       	<a th:if="${!customers.lastPage}" th:href="@{/customer(page=${customers.page + 1})}">Next</a> 
+</body>
+</html>

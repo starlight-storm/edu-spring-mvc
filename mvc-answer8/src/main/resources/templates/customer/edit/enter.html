@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<link href="/css/normalize.css" th:href="@{/css/normalize.css}" rel="stylesheet"></link>
+<link href="/css/customer.css" th:href="@{/css/customer.css}" rel="stylesheet"></link>
+<title th:text="#{title.enter}">にゅうりょく画面</title>
+</head>
+<body>
+	<h1 th:text="#{title.enter}">にゅうりょく画面</h1>
+	<form method="post" th:object="${editCustomer}">
+		<dl>
+			<dt th:text="#{id}">ID</dt>
+			<dd th:text="${editCustomer.id}">3</dd>
+			
+			<dt th:text="#{name}">NAME</dt>
+			<dd>
+				<input type="text" th:field="*{name}" />
+				<span th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Name Error</span>
+			</dd>
+			<dt th:text="#{address}">ADDRESS</dt>
+			<dd>
+				<input type="text" th:field="*{address}" />
+				<span th:if="${#fields.hasErrors('address')}" th:errors="*{address}">Address Error</span>
+			</dd>
+			<dt th:text="#{emailAddress}">E-Mail</dt>
+			<dd>
+				<input type="text" th:field="*{emailAddress}" />
+				<span th:if="${#fields.hasErrors('emailAddress')}" th:errors="*{emailAddress}">E-Mail Error</span>
+				<span th:if="${#fields.hasErrors('ngEmail')}" th:errors="*{ngEmail}">E-Mail Error</span>
+			</dd>
+			<dt th:text="#{membershipType}">TYPE</dt>
+			<dd>
+				<select th:field="*{membershipType}">
+					<option th:each="value : ${@eh.values('CustomerTypeValues')}"
+						th:value="${value.getValue()}" th:text="${value.getText()}">シルバー</option>
+				</select>
+			</dd>
+			<dt th:text="#{emailNotification}">NOFIFICATION</dt>
+			<dd>
+				<div th:each="value : ${@eh.values('EmailNotificationValues')}">
+				<input type="radio" th:field="*{emailNotification}" th:value="${value.getValue()}" />
+				<label th:for="${#ids.prev('emailNotification')}" th:text="${value.getText()}">YES</label>
+				</div>
+			</dd>
+		</dl>
+		<button type="submit" name="_event_proceed" th:text="#{button.next}">つぎへ</button>
+	</form>
+</body>
+</html>
