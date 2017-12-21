@@ -60,8 +60,7 @@ public class CustomerEditController {
     }
 
     @PostMapping(value = "/review", params = "_event_confirmed")
-    public String edit(@ModelAttribute("editCustomer") Customer customer)
-            throws DataNotFoundException {
+    public String edit(@ModelAttribute("editCustomer") Customer customer) {
         customerService.update(customer);
         return "redirect:/customer/{customerId}/edited";
     }
