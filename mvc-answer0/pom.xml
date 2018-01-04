@@ -4,12 +4,11 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.example</groupId>
-	<artifactId>demo</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.0.0</version>
 	<packaging>jar</packaging>
 
-	<name>Answer01</name>
-	<description>Demo project for Spring Boot</description>
+	<name>mvc-answer0</name>
+	<description>Spring MVC Training project for Spring Boot</description>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
@@ -59,4 +58,5 @@
 	</build>
 
 
+	<artifactId>mvc-answer0</artifactId>
 </project>
