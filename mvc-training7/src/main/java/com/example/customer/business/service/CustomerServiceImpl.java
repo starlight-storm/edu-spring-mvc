@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.example.customer.business.domain.Customer;
+import com.example.customer.business.repository.CustomerRepository;
 import com.example.customer.common.exception.DataNotFoundException;
 
 @Service
