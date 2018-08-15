@@ -3,11 +3,11 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>sample</groupId>
+	<groupId>com.example</groupId>
 	<version>1.0.0</version>
 	<packaging>jar</packaging>
 
-	<name>mvc-answer8</name>
+	<name>mvc-training8-answer</name>
 	<description>Spring MVC Training project for Spring Boot</description>
 
 	<parent>
@@ -75,5 +75,5 @@
 	</build>
 
 
-	<artifactId>mvc-answer8</artifactId>
+	<artifactId>mvc-training8-answer</artifactId>
 </project>
