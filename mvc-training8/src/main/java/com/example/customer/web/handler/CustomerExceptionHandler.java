@@ -14,10 +14,10 @@ import lombok.extern.slf4j.Slf4j;
 @ControllerAdvice
 @Slf4j
 public class CustomerExceptionHandler {
-	
+
 	@Autowired
-    private MessageSource messageSource;
-	
+	private MessageSource messageSource;
+
 	@ExceptionHandler(DataNotFoundException.class)
 	public String notFoundException(Locale locale) {
 		log.error("*** " + messageSource.getMessage("errors.datanotfound.customer", null, locale) + "***");

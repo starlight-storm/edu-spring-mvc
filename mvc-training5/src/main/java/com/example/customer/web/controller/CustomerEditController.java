@@ -23,54 +23,49 @@ import com.example.customer.common.exception.DataNotFoundException;
 @SessionAttributes("editCustomer")
 public class CustomerEditController {
 
-    @Autowired
-    private CustomerService customerService;
+	@Autowired
+	private CustomerService customerService;
 
-    @GetMapping("/edit")
-    public String redirectToEntryForm(@PathVariable int customerId, Model model)
-            throws DataNotFoundException {
-        Customer customer = customerService.findById(customerId);
-        model.addAttribute("editCustomer", customer);
+	@GetMapping("/edit")
+	public String redirectToEntryForm(@PathVariable int customerId, Model model) throws DataNotFoundException {
+		Customer customer = customerService.findById(customerId);
+		model.addAttribute("editCustomer", customer);
 
-        return "redirect:/customer/{customerId}/enter";
-    }
+		return "redirect:/customer/{customerId}/enter";
+	}
 
-    @GetMapping("/enter")
-    public String showEntryForm() {
-        return "customer/edit/enter";
-    }
+	@GetMapping("/enter")
+	public String showEntryForm() {
+		return "customer/edit/enter";
+	}
 
-    @PostMapping(value = "/enter", params = "_event_proceed")
-    public String verify(
-            @Valid @ModelAttribute("editCustomer") Customer customer,
-            Errors errors) {
-        if (errors.hasErrors()) {
-            return "customer/edit/enter";
-        }
-        return "redirect:/customer/{customerId}/review";
-    }
+	@PostMapping(value = "/enter", params = "_event_proceed")
+	public String verify(@Valid @ModelAttribute("editCustomer") Customer customer, Errors errors) {
+		if (errors.hasErrors()) {
+			return "customer/edit/enter";
+		}
+		return "redirect:/customer/{customerId}/review";
+	}
 
-    @GetMapping("/review")
-    public String showReview() {
-        return "customer/edit/review";
-    }
+	@GetMapping("/review")
+	public String showReview() {
+		return "customer/edit/review";
+	}
 
-    @PostMapping(value = "/review", params = "_event_revise")
-    public String revise() {
-        return "redirect:/customer/{customerId}/enter";
-    }
+	@PostMapping(value = "/review", params = "_event_revise")
+	public String revise() {
+		return "redirect:/customer/{customerId}/enter";
+	}
 
-    @PostMapping(value = "/review", params = "_event_confirmed")
-    public String edit(@ModelAttribute("editCustomer") Customer customer) {
-        customerService.update(customer);
-        return "redirect:/customer/{customerId}/edited";
-    }
+	@PostMapping(value = "/review", params = "_event_confirmed")
+	public String edit(@ModelAttribute("editCustomer") Customer customer) {
+		customerService.update(customer);
+		return "redirect:/customer/{customerId}/edited";
+	}
 
-    @GetMapping("/edited")
-    public String showEdited(SessionStatus sessionStatus) {
-
-        sessionStatus.setComplete();
-
-        return "customer/edit/edited";
-    }
+	@GetMapping("/edited")
+	public String showEdited(SessionStatus sessionStatus) {
+		sessionStatus.setComplete();
+		return "customer/edit/edited";
+	}
 }

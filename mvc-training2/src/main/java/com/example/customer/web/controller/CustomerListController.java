@@ -14,20 +14,20 @@ import com.example.customer.business.service.CustomerService;
 @Controller
 public class CustomerListController {
 
-    @Autowired
-    private CustomerService customerService;
+	@Autowired
+	private CustomerService customerService;
 
-    @GetMapping()
-    public String home() {
-        return "forward:/customer";
-    }
-    
-    @GetMapping("/customer")
-    public String showAllCustomers(Model model) {
-        List<Customer> customers = customerService.findAll();
-        model.addAttribute("customers", customers);
-        return "customer/list";
-    }
+	@GetMapping()
+	public String home() {
+		return "forward:/customer";
+	}
 
-    // TODO: 演習2 メソッドを実装する
+	@GetMapping("/customer")
+	public String showAllCustomers(Model model) {
+		List<Customer> customers = customerService.findAll();
+		model.addAttribute("customers", customers);
+		return "customer/list";
+	}
+
+	// TODO: 演習2 メソッドを実装する
 }

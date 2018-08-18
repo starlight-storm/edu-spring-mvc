@@ -14,30 +14,30 @@ import com.example.customer.business.service.CustomerService;
 @Controller
 public class CustomerListController {
 
-    @Autowired
-    private CustomerService customerService;
+	@Autowired
+	private CustomerService customerService;
 
-    @GetMapping(value = "/")
-    public String home() {
-        return "forward:/customer";
-    }
-    
-    private static int PAGE_SIZE = 3;
-    
-    @GetMapping(value = "/customer")
-    public String showAllCustomers(@RequestParam(value = "page", defaultValue = "0") String page, Model model) {
-        //List<Customer> customers = customerService.findAll();
-        PagedListHolder<Customer> customers = new PagedListHolder<>(customerService.findAll());
-        customers.setPage(Integer.parseInt(page));
-        customers.setPageSize(PAGE_SIZE);
-        model.addAttribute("customers", customers);
-        return "customer/list";
-    }
+	@GetMapping(value = "/")
+	public String home() {
+		return "forward:/customer";
+	}
 
-    @GetMapping(value = "/customer/{customerId}")
-    public String showCustomerDetail(@PathVariable int customerId, Model model) {
-        Customer customer = customerService.findById(customerId);
-        model.addAttribute("customer", customer);
-        return "customer/detail";
-    }
+	private static int PAGE_SIZE = 3;
+
+	@GetMapping(value = "/customer")
+	public String showAllCustomers(@RequestParam(value = "page", defaultValue = "0") String page, Model model) {
+		// List<Customer> customers = customerService.findAll();
+		PagedListHolder<Customer> customers = new PagedListHolder<>(customerService.findAll());
+		customers.setPage(Integer.parseInt(page));
+		customers.setPageSize(PAGE_SIZE);
+		model.addAttribute("customers", customers);
+		return "customer/list";
+	}
+
+	@GetMapping(value = "/customer/{customerId}")
+	public String showCustomerDetail(@PathVariable int customerId, Model model) {
+		Customer customer = customerService.findById(customerId);
+		model.addAttribute("customer", customer);
+		return "customer/detail";
+	}
 }

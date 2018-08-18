@@ -9,13 +9,13 @@ import com.example.customer.business.service.CustomerService;
 @Controller
 public class CustomerListController {
 
-    @Autowired
-    private CustomerService customerService;
+	@Autowired
+	private CustomerService customerService;
 
-    @GetMapping()
-    public String home() {
-        return "forward:/customer";
-    }
-    
-    // TODO: 演習1 メソッドを実装する
+	@GetMapping()
+	public String home() {
+		return "forward:/customer";
+	}
+
+	// TODO: 演習1 メソッドを実装する
 }

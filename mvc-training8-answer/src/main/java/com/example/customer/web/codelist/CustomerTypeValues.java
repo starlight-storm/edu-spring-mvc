@@ -7,7 +7,7 @@ public enum CustomerTypeValues implements EnumValues {
 
 	private final String value;
 	private final String text;
-	
+
 	private CustomerTypeValues(String value, String text) {
 		this.value = value;
 		this.text = text;
@@ -22,6 +22,5 @@ public enum CustomerTypeValues implements EnumValues {
 	public String getText() {
 		return text;
 	}
-	
-	
+
 }

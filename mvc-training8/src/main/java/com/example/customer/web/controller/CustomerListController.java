@@ -14,26 +14,26 @@ import com.example.customer.business.service.CustomerService;
 @Controller
 public class CustomerListController {
 
-    @Autowired
-    private CustomerService customerService;
+	@Autowired
+	private CustomerService customerService;
 
-    @GetMapping(value = "/")
-    public String home() {
-        return "forward:/customer";
-    }
-    
-    @GetMapping(value = "/customer")
-    public String showAllCustomers(Model model) {
-        List<Customer> customers = customerService.findAll();
-        model.addAttribute("customers", customers);
-        return "customer/list";
-    }
+	@GetMapping(value = "/")
+	public String home() {
+		return "forward:/customer";
+	}
 
-    // TODO: ページネイションに対応させる
-    @GetMapping(value = "/customer/{customerId}")
-    public String showCustomerDetail(@PathVariable int customerId, Model model) {
-        Customer customer = customerService.findById(customerId);
-        model.addAttribute("customer", customer);
-        return "customer/detail";
-    }
+	@GetMapping(value = "/customer")
+	public String showAllCustomers(Model model) {
+		List<Customer> customers = customerService.findAll();
+		model.addAttribute("customers", customers);
+		return "customer/list";
+	}
+
+	// TODO: ページネイションに対応させる
+	@GetMapping(value = "/customer/{customerId}")
+	public String showCustomerDetail(@PathVariable int customerId, Model model) {
+		Customer customer = customerService.findById(customerId);
+		model.addAttribute("customer", customer);
+		return "customer/detail";
+	}
 }

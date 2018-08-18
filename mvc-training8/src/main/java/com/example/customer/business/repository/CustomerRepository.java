@@ -10,14 +10,14 @@ import com.example.customer.business.domain.Customer;
 
 @Mapper
 public interface CustomerRepository {
-	
+
 	@Select("SELECT ID, NAME, ADDRESS, EMAIL_ADDRESS, MEMBERSHIP_TYPE, EMAIL_NOTIFICATION FROM CUSTOMER")
-    public List<Customer> findAll();
+	public List<Customer> findAll();
 
 	@Select("SELECT * FROM CUSTOMER WHERE ID = #{id}")
-    public Customer findById(int id);
+	public Customer findById(int id);
 
 	@Update("UPDATE CUSTOMER SET NAME=#{name}, ADDRESS=#{address}, EMAIL_ADDRESS=#{emailAddress}, MEMBERSHIP_TYPE=#{membershipType}, EMAIL_NOTIFICATION=#{emailNotification} WHERE ID = #{id}")
-    public void update(Customer customer);
+	public void update(Customer customer);
 
 }

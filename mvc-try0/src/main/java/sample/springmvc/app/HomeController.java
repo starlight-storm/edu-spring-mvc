@@ -8,11 +8,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class HomeController {
-	
+
 	@GetMapping(value = "/")
 	public String home(Model model) {
 		Date date = new Date();
-		model.addAttribute("serverTime", date );		  
+		model.addAttribute("serverTime", date);
 		return "home";
 	}
 }
