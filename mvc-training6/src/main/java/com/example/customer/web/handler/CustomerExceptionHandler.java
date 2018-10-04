@@ -10,6 +10,6 @@ public class CustomerExceptionHandler {
 	
 	@ExceptionHandler(DataNotFoundException.class)
 	public String notFoundException() {
-		return "/customer/notfound";
+		return "/customers/notfound";
 	}
 }

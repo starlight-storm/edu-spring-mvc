@@ -19,21 +19,21 @@ public class CustomerListController {
 
 	@GetMapping(value = "/")
 	public String home() {
-		return "forward:/customer";
+		return "forward:/customers";
 	}
 
-	@GetMapping(value = "/customer")
+	@GetMapping(value = "/customers")
 	public String showAllCustomers(Model model) {
 		List<Customer> customers = customerService.findAll();
 		model.addAttribute("customers", customers);
-		return "customer/list";
+		return "customers/list";
 	}
 
 	// TODO: ページネイションに対応させる
-	@GetMapping(value = "/customer/{customerId}")
+	@GetMapping(value = "/customers/{customerId}")
 	public String showCustomerDetail(@PathVariable int customerId, Model model) {
 		Customer customer = customerService.findById(customerId);
 		model.addAttribute("customer", customer);
-		return "customer/detail";
+		return "customers/detail";
 	}
 }

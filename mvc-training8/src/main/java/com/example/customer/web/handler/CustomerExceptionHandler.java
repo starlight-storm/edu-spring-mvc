@@ -21,6 +21,6 @@ public class CustomerExceptionHandler {
 	@ExceptionHandler(DataNotFoundException.class)
 	public String notFoundException(Locale locale) {
 		log.error("*** " + messageSource.getMessage("errors.datanotfound.customer", null, locale) + "***");
-		return "/customer/notfound";
+		return "/customers/notfound";
 	}
 }

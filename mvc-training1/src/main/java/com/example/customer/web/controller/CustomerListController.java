@@ -14,7 +14,7 @@ public class CustomerListController {
 
 	@GetMapping()
 	public String home() {
-		return "forward:/customer";
+		return "forward:/customers";
 	}
 
 	// TODO: 演習1 メソッドを実装する

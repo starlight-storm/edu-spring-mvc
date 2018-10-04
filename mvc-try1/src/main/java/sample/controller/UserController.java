@@ -16,7 +16,7 @@ public class UserController {
 	@PostMapping("/input")
 	public String inputNameByPost(@RequestParam String name) {
 		System.out.println("***" + name);
-		return "inputUser";
+		return "input_user";
 	}
 
 }

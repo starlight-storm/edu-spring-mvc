@@ -19,25 +19,25 @@ public class CustomerListController {
 
 	@GetMapping(value = "/")
 	public String home() {
-		return "forward:/customer";
+		return "forward:/customers";
 	}
 
 	private static int PAGE_SIZE = 3;
 
-	@GetMapping(value = "/customer")
+	@GetMapping(value = "/customers")
 	public String showAllCustomers(@RequestParam(value = "page", defaultValue = "0") String page, Model model) {
 		// List<Customer> customers = customerService.findAll();
 		PagedListHolder<Customer> customers = new PagedListHolder<>(customerService.findAll());
 		customers.setPage(Integer.parseInt(page));
 		customers.setPageSize(PAGE_SIZE);
 		model.addAttribute("customers", customers);
-		return "customer/list";
+		return "customers/list";
 	}
 
-	@GetMapping(value = "/customer/{customerId}")
+	@GetMapping(value = "/customers/{customerId}")
 	public String showCustomerDetail(@PathVariable int customerId, Model model) {
 		Customer customer = customerService.findById(customerId);
 		model.addAttribute("customer", customer);
-		return "customer/detail";
+		return "customers/detail";
 	}
 }

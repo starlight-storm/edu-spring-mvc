@@ -19,14 +19,14 @@ public class CustomerListController {
 
 	@GetMapping()
 	public String home() {
-		return "forward:/customer";
+		return "forward:/customers";
 	}
 
-	@GetMapping("/customer")
+	@GetMapping("/customers")
 	public String showAllCustomers(Model model) {
 		List<Customer> customers = customerService.findAll();
 		model.addAttribute("customers", customers);
-		return "customer/list";
+		return "customers/list";
 	}
 
 	// TODO: 演習2 メソッドを実装する
