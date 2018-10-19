@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class UserController {
 
 	@GetMapping("/")
-	public String listUploadedFiles() {
-		return "inputUser";
+	public String home() {
+		return "input_user";
 	}
 
 	@PostMapping("/input")

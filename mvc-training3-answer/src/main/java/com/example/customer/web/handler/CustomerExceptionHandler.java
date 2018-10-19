@@ -8,7 +8,7 @@ import com.example.customer.common.exception.DataNotFoundException;
 @ControllerAdvice
 public class CustomerExceptionHandler {
 	@ExceptionHandler(DataNotFoundException.class)
-	public String notFoundException() {
+	public String customerNotFoundExceptionHandler() {
 		return "/customers/notfound";
 	}
 }

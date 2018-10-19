@@ -9,7 +9,7 @@ import com.example.customer.common.exception.DataNotFoundException;
 public class CustomerExceptionHandler {
 	
 	@ExceptionHandler(DataNotFoundException.class)
-	public String notFoundException() {
+	public String customerNotFoundExceptionHandler() {
 		return "/customers/notfound";
 	}
 }

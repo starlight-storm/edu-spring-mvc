@@ -11,7 +11,6 @@ import org.apache.commons.beanutils.BeanUtils;
 import org.springframework.stereotype.Service;
 
 import com.example.customer.business.domain.Customer;
-import com.example.customer.business.service.CustomerService;
 import com.example.customer.common.exception.DataNotFoundException;
 
 @Service("customerService")
