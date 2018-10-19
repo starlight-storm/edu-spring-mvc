@@ -22,6 +22,7 @@ public class CustomerListController {
 		return "forward:/customers";
 	}
 
+	// TODO: ページネイションに対応させる
 	@GetMapping(value = "/customers")
 	public String showAllCustomers(Model model) {
 		List<Customer> customers = customerService.findAll();
@@ -29,7 +30,6 @@ public class CustomerListController {
 		return "customers/list";
 	}
 
-	// TODO: ページネイションに対応させる
 	@GetMapping(value = "/customers/{customerId}")
 	public String showCustomerDetail(@PathVariable int customerId, Model model) {
 		Customer customer = customerService.findById(customerId);
