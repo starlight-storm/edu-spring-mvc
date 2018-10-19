@@ -22,14 +22,14 @@ public class CustomerListController {
 		return "forward:/customers";
 	}
 
-	@GetMapping(value = "/customer")
+	@GetMapping(value = "/customers")
 	public String showAllCustomers(Model model) {
 		List<Customer> customers = customerService.findAll();
 		model.addAttribute("customers", customers);
 		return "customers/list";
 	}
 
-	@GetMapping(value = "/customer/{customerId}")
+	@GetMapping(value = "/customers/{customerId}")
 	public String showCustomerDetail(@PathVariable int customerId, Model model) {
 		Customer customer = customerService.findById(customerId);
 		model.addAttribute("customer", customer);
